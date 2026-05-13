@@ -1,0 +1,24 @@
+from kubernetes import client, config
+
+config.load_kube_config()
+
+v1 = client.CoreV1Api()
+
+def restart_failed_pods():
+    pods = v1.list_pod_for_all_namespaces(watch=False)
+
+    restarted = []
+
+    for pod in pods.items:
+        if pod.status.phase == "Failed":
+
+            v1.delete_namespaced_pod(
+                name=pod.metadata.name,
+                namespace=pod.metadata.namespace
+            )
+
+            restarted.append(pod.metadata.name)
+
+    return {
+        "restarted_pods": restarted
+    }
