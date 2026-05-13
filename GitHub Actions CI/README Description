@@ -1,0 +1,17 @@
+# AegisOps – AI Incident Monitoring & Auto-Healing Platform
+
+A Kubernetes-based AI infrastructure reliability platform that detects failed pods, monitors infrastructure health, and automatically performs self-healing operations.
+
+## Features
+
+- Real-time Kubernetes pod monitoring
+- Auto-healing for failed containers
+- FastAPI REST APIs
+- Dockerized microservices
+- Prometheus metrics
+- Grafana + Loki observability
+- GitHub Actions CI/CD
+
+## Tech Stack
+
+Python, FastAPI, Kubernetes, Docker, Prometheus, Grafana, Loki, Redis, GitHub Actions
