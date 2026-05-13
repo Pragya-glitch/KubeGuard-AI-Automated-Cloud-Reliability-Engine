@@ -1,0 +1,17 @@
+from fastapi import FastAPI
+from kubernetes_monitor import get_pod_status
+from auto_heal import restart_failed_pods
+
+app = FastAPI()
+
+@app.get("/")
+def home():
+    return {"message": "AegisOps AI Monitoring Running"}
+
+@app.get("/pods")
+def pod_status():
+    return get_pod_status()
+
+@app.post("/heal")
+def heal_pods():
+    return restart_failed_pods()
